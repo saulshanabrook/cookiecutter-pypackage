@@ -29,7 +29,6 @@ setup(
         '{{ cookiecutter.repo_name }}',
     ],
     package_dir={'{{ cookiecutter.repo_name }}': '{{ cookiecutter.repo_name }}'},
-    include_package_data=True,
     install_requires=[
     ],
     license="BSD",
@@ -45,5 +44,4 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
     ],
-    test_suite='tests',
 )
