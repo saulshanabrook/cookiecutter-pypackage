@@ -30,6 +30,24 @@ sys.path.insert(0, project_root)
 
 import {{ cookiecutter.repo_name }}
 
+
+# Custom
+autodoc_default_flags = [
+    'members',
+    'special-members',  # like __init__
+    'show-inheritance'
+]
+
+
+def skip(app, what, name, obj, skip, options):
+    if name == "__weakref__":
+        return True
+    return skip
+
+
+def setup(app):
+    app.connect("autodoc-skip-member", skip)
+
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
