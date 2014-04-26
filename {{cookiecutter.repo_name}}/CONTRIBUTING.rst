@@ -66,7 +66,6 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for loc
 
     $ mkvirtualenv {{ cookiecutter.repo_name }}
     $ cd {{ cookiecutter.repo_name }}/
-    $ python setup.py develop
 
 4. Create a branch for local development::
 
@@ -76,10 +75,9 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for loc
 
 5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
 
-    $ flake8 {{ cookiecutter.repo_name }} tests
     $ tox
 
-   To get flake8 and tox, just pip install them into your virtualenv.
+   To get tox, just pip install it into your virtualenv.
 
 6. Commit your changes and push your branch to GitHub::
 
@@ -102,9 +100,10 @@ Before you submit a pull request, check that it meets these guidelines:
    https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
-Tips
+Making a new version
 ----
 
-To run a subset of tests::
-
-	$ python -m unittest tests.test_{{ cookiecutter.repo_name }}
+  $ pip install -r requirements-dev.txt
+  $ bumpversion major|minor|patch
+  $ git push --tags
+  $ python setup.py publish
